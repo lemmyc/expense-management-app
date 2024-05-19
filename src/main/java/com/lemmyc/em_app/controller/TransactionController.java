@@ -22,6 +22,7 @@ public class TransactionController {
     }
 
     @PostMapping
+    // Authorizing using JWT
     public ResponseEntity<?> addTransaction(@RequestHeader(name="Authorization") String token ,@RequestBody Transaction transaction){
         transactionService.saveTransaction(token, transaction);
         return ResponseEntity.ok("Transaction added successfully");
